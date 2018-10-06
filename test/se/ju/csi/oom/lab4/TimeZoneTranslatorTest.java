@@ -48,7 +48,7 @@ public class TimeZoneTranslatorTest {
 	
 		DateTime testDateTime = new DateTime(2018, 10, 10, 10, 0, 0);
 		DateTime testDateTimeString = new DateTime("2018-10-10 10:00:00");
-		String s = "2018-10-10 10:00:00";
+		String s = "2018-10-10 10:00";
 		
 		System.out.println(s + "\n" + testDateTime.toString());
 		assertEquals(s , testDateTime.toString());
