@@ -27,6 +27,7 @@ public class TimeZoneTranslatorTest {
 	@Test
 	public void testShiftEventTimeZone() {
 		DateTime start = new DateTime(2018, 10, 4, 15, 35, 0);
+		
 		// skall byta datum rätt
 		DateTime end = new DateTime(2018, 12, 31, 23, 0,0);
 		Person elias = new Person("Elias Lindh");
@@ -36,12 +37,25 @@ public class TimeZoneTranslatorTest {
 		Event firstEvent = new Event("OOM 2018 Deadline!", start, end,new HashSet<>(Arrays.asList(elias, robin)), HC218);
 		DateTime startDate = new DateTime(2018, 10, 04, 23, 35, 00);
 		
-		
 		Event newEvent = TimeZoneTranslator.shiftEventTimeZone(firstEvent, TimeZone.CENTRAL_EUROPEAN_TIME, TimeZone.JAPAN);
-		System.out.println(startDate + "\n" + newEvent.getEndDate());
-		
 		
 		assertEquals(startDate.toString(), newEvent.getStartDate().toString());
+	}
+	
+	
+	@Test
+	public void testDateTime() {
+	
+		DateTime testDateTime = new DateTime(2018, 10, 10, 10, 0, 0);
+		DateTime testDateTimeString = new DateTime("2018-10-10 10:00:00");
+		String s = "2018-10-10 10:00:00";
+		
+		System.out.println(s + "\n" + testDateTime.toString());
+		assertEquals(s , testDateTime.toString());
+		assertEquals(testDateTimeString.toString(), testDateTime.toString());
+		
+		
+		
 	}
 
 }
